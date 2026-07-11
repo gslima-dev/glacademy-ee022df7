@@ -2,18 +2,17 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
 const inscricaoSchema = z.object({
-  nome: z.string().min(2, "Indica o nome"),
+  nome: z.string().min(2, "Indica o nome do encarregado de educação"),
   email: z.string().email("Indica um email válido"),
   telefone: z.string().min(1, "Indica um telefone"),
-  nome_aluno: z.string().optional(),
-  ano: z.string().optional(),
-  disciplina: z.string().optional(),
+  nome_aluno: z.string().min(2, "Indica o nome do aluno"),
+  ano: z.string().min(1, "Seleciona o ano"),
+  disciplina: z.string().min(1, "Seleciona a disciplina"),
   modalidade: z.string().optional(),
   mensagem: z.string().optional(),
 });
 
-function mapDisciplina(val?: string): string[] {
-  if (!val) return [];
+function mapDisciplina(val: string): string[] {
   const map: Record<string, string> = {
     "Física e Química A": "fq",
     "Biologia e Geologia": "biogeo",
@@ -25,10 +24,9 @@ function mapDisciplina(val?: string): string[] {
   return [d];
 }
 
-function mapAno(val?: string): string {
-  if (!val) return "";
+function mapAno(val: string): string {
   const m = val.match(/(10|11|12)/);
-  return m ? m[1] : "";
+  return m ? m[1] : val;
 }
 
 export const submeterInscricao = createServerFn({ method: "POST" })
@@ -40,8 +38,8 @@ export const submeterInscricao = createServerFn({ method: "POST" })
       nome_encarregado: data.nome,
       email: data.email,
       telefone: data.telefone,
-      nome_aluno: data.nome_aluno || null,
-      ano_escolaridade: mapAno(data.ano) || null,
+      nome_aluno: data.nome_aluno,
+      ano_escolaridade: mapAno(data.ano),
       disciplinas: mapDisciplina(data.disciplina),
       modalidade: data.modalidade || null,
       mensagem: data.mensagem || null,
