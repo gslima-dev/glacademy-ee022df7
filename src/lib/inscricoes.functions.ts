@@ -2,18 +2,34 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
 const inscricaoSchema = z.object({
-  nomeAluno: z.string().min(2, "Indica o nome do aluno"),
-  anoEscolaridade: z.enum(["9", "10", "11", "12"], {
-    message: "Seleciona o ano de escolaridade",
-  }),
-  disciplinas: z
-    .array(z.enum(["fq", "biogeo"]))
-    .min(1, "Seleciona pelo menos uma disciplina"),
-  nomeEncarregado: z.string().optional(),
+  nome: z.string().min(2, "Indica o nome"),
   email: z.string().email("Indica um email válido"),
-  telefone: z.string().optional(),
+  telefone: z.string().min(1, "Indica um telefone"),
+  nome_aluno: z.string().optional(),
+  ano: z.string().optional(),
+  disciplina: z.string().optional(),
+  modalidade: z.string().optional(),
   mensagem: z.string().optional(),
 });
+
+function mapDisciplina(val?: string): string[] {
+  if (!val) return [];
+  const map: Record<string, string> = {
+    "Física e Química A": "fq",
+    "Biologia e Geologia": "biogeo",
+    "Ambas": "ambas",
+  };
+  const d = map[val] ?? val.toLowerCase();
+  if (d === "ambas") return ["fq", "biogeo"];
+  if (d === "fq" || d === "biogeo") return [d];
+  return [d];
+}
+
+function mapAno(val?: string): string {
+  if (!val) return "";
+  const m = val.match(/(10|11|12)/);
+  return m ? m[1] : "";
+}
 
 export const submeterInscricao = createServerFn({ method: "POST" })
   .inputValidator((data) => inscricaoSchema.parse(data))
@@ -21,12 +37,13 @@ export const submeterInscricao = createServerFn({ method: "POST" })
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
     const { error } = await supabaseAdmin.from("inscricoes").insert({
-      nome_aluno: data.nomeAluno,
-      ano_escolaridade: data.anoEscolaridade,
-      disciplinas: data.disciplinas,
-      nome_encarregado: data.nomeEncarregado || null,
+      nome_encarregado: data.nome,
       email: data.email,
-      telefone: data.telefone || null,
+      telefone: data.telefone,
+      nome_aluno: data.nome_aluno || null,
+      ano_escolaridade: mapAno(data.ano) || null,
+      disciplinas: mapDisciplina(data.disciplina),
+      modalidade: data.modalidade || null,
       mensagem: data.mensagem || null,
     });
 
