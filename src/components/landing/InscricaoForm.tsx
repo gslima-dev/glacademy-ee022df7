@@ -106,10 +106,11 @@ export function InscricaoForm() {
             </div>
             <div>
               <label htmlFor="nome_aluno" className="block text-[0.75rem] font-semibold text-ink mb-1.5">
-                Nome do aluno
+                Nome do aluno <span className="text-destructive">*</span>
               </label>
               <input
                 id="nome_aluno"
+                required
                 value={form.nome_aluno}
                 onChange={(e) => setForm({ ...form, nome_aluno: e.target.value })}
                 className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-[0.85rem] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
@@ -118,10 +119,11 @@ export function InscricaoForm() {
             </div>
             <div>
               <label htmlFor="ano" className="block text-[0.75rem] font-semibold text-ink mb-1.5">
-                Ano do aluno
+                Ano do aluno <span className="text-destructive">*</span>
               </label>
               <select
                 id="ano"
+                required
                 value={form.ano}
                 onChange={(e) => setForm({ ...form, ano: e.target.value })}
                 className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-[0.85rem] text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
@@ -136,10 +138,11 @@ export function InscricaoForm() {
             </div>
             <div>
               <label htmlFor="disciplina" className="block text-[0.75rem] font-semibold text-ink mb-1.5">
-                Disciplina
+                Disciplina <span className="text-destructive">*</span>
               </label>
               <select
                 id="disciplina"
+                required
                 value={form.disciplina}
                 onChange={(e) => setForm({ ...form, disciplina: e.target.value })}
                 className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-[0.85rem] text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
