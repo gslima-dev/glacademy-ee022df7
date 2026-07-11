@@ -30,7 +30,7 @@ function mapAno(val: string): string {
 }
 
 export const submeterInscricao = createServerFn({ method: "POST" })
-  .inputValidator((data) => inscricaoSchema.parse(data))
+  .validator({ parse: (data) => inscricaoSchema.parse(data) })
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
