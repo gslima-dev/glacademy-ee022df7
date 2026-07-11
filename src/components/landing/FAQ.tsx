@@ -7,7 +7,7 @@ const faqs = [
   },
   {
     q: "Como sei se o meu filho precisa de acompanhamento ou apenas de uma boa explicação?",
-    a: "O diagnóstico responde exactamente a isso. Muitos alunos parecem " não estarem a perceber ", quando na verdade o bloqueio é muito mais específico: falta de bases, dificuldade em responder em formato de exame, ou ausência de método de estudo. Só após o diagnóstico se define a melhor intervenção.",
+    a: "O diagnóstico responde exactamente a isso. Muitos alunos parecem 'não estarem a perceber', quando na verdade o bloqueio é muito mais específico: falta de bases, dificuldade em responder em formato de exame, ou ausência de método de estudo. Só após o diagnóstico se define a melhor intervenção.",
   },
   {
     q: "As sessões são presenciais ou online?",
