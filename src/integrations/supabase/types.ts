@@ -22,6 +22,7 @@ export type Database = {
           email: string
           id: string
           mensagem: string | null
+          modalidade: string | null
           nome_aluno: string
           nome_encarregado: string | null
           respondido: boolean | null
@@ -34,6 +35,7 @@ export type Database = {
           email: string
           id?: string
           mensagem?: string | null
+          modalidade?: string | null
           nome_aluno: string
           nome_encarregado?: string | null
           respondido?: boolean | null
@@ -46,6 +48,7 @@ export type Database = {
           email?: string
           id?: string
           mensagem?: string | null
+          modalidade?: string | null
           nome_aluno?: string
           nome_encarregado?: string | null
           respondido?: boolean | null
