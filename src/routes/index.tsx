@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
       { title: "GL Academy — Acompanhamento Premium FQ e BioGeo" },
       { name: "description", content: "Acompanhamento académico premium em Física e Química A e Biologia e Geologia para alunos do ensino secundário. Sessão de diagnóstico gratuita e online." },
       { property: "og:title", content: "GL Academy — Acompanhamento Premium FQ e BioGeo" },
-      { property: "og:description", content: "Sessão de diagnóstico gratuito para alunos do 10.º ao 12.º ano." },
+      { property: "og:description", content: "Acompanhamento académico premium em Física e Química A e Biologia e Geologia para alunos do ensino secundário. Sessão de diagnóstico gratuita e online." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

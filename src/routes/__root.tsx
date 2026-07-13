@@ -78,22 +78,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "GL Academy · Acompanhamento académico em FQ e BioGeo" },
+      { title: "GL Academy — Acompanhamento Premium FQ e BioGeo" },
       {
         name: "description",
         content:
-          "Explicações premium de Físico-Química e Biologia-Geologia para alunos dedicados do ensino secundário. Sessão de diagnóstico gratuita, online e sem compromisso.",
+          "Acompanhamento académico premium em Física e Química A e Biologia e Geologia para alunos do ensino secundário. Sessão de diagnóstico gratuita e online.",
       },
       { name: "author", content: "GL Academy" },
-      { property: "og:title", content: "GL Academy · Acompanhamento académico em FQ e BioGeo" },
+      { property: "og:title", content: "GL Academy — Acompanhamento Premium FQ e BioGeo" },
       {
         property: "og:description",
         content:
-          "Explicações premium de Físico-Química e Biologia-Geologia para alunos dedicados do ensino secundário. Sessão de diagnóstico gratuita, online e sem compromisso.",
+          "Acompanhamento académico premium em Física e Química A e Biologia e Geologia para alunos do ensino secundário. Sessão de diagnóstico gratuita e online.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@glacademy" },
+      { name: "twitter:title", content: "GL Academy — Acompanhamento Premium FQ e BioGeo" },
+      { name: "twitter:description", content: "Acompanhamento académico premium em Física e Química A e Biologia e Geologia para alunos do ensino secundário. Sessão de diagnóstico gratuita e online." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f90e710d-036f-4bf4-80c5-bea4fca57708/id-preview-60461ef7--2804ba3f-3396-406f-878c-b5fd0bfcd61c.lovable.app-1783964687198.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f90e710d-036f-4bf4-80c5-bea4fca57708/id-preview-60461ef7--2804ba3f-3396-406f-878c-b5fd0bfcd61c.lovable.app-1783964687198.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
