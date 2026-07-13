@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "./AppSidebar";
-import { Toaster } from "@/components/ui/sonner";
 
 export function AppShell({ children }: { children: ReactNode }) {
   return (
@@ -15,7 +14,6 @@ export function AppShell({ children }: { children: ReactNode }) {
           <main className="flex-1 min-w-0">{children}</main>
         </div>
       </div>
-      <Toaster richColors position="top-right" />
     </SidebarProvider>
   );
 }
