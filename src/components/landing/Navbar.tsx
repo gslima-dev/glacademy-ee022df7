@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 export function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-paper/96 backdrop-blur-md border-b border-border h-14 flex items-center">
@@ -5,13 +7,16 @@ export function Navbar() {
         <div className="font-serif text-[1.08rem] font-bold text-ink tracking-tight">
           GL<span className="text-teal">.</span>Academy
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-5">
           <a href="#metodo" className="hidden sm:block text-[0.8rem] text-ink-2 font-medium opacity-60 hover:opacity-100 transition-opacity">
             Método
           </a>
           <a href="#resultados" className="hidden sm:block text-[0.8rem] text-ink-2 font-medium opacity-60 hover:opacity-100 transition-opacity">
             Resultados
           </a>
+          <Link to="/auth" className="text-[0.8rem] text-ink-2 font-medium opacity-70 hover:opacity-100 transition-opacity">
+            Entrar
+          </Link>
           <a
             href="#marcar"
             className="bg-teal text-white text-[0.8rem] font-semibold px-4 py-2 rounded-md hover:bg-teal-dark hover:-translate-y-0.5 transition-all"
