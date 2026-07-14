@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const faqs = [
   {
@@ -36,8 +36,6 @@ const faqs = [
 ];
 
 export function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
-
   return (
     <section className="py-16 bg-background" id="faq">
       <div className="max-w-4xl mx-auto px-6">
@@ -48,27 +46,22 @@ export function FAQ() {
           Esclarecimentos práticos.
         </h2>
 
-        <div className="flex flex-col gap-3">
+        <Accordion type="single" collapsible defaultValue="faq-0" className="flex flex-col gap-3">
           {faqs.map((item, i) => (
-            <div key={i} className="border border-border rounded-xl bg-card overflow-hidden">
-              <button
-                onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between gap-4 p-4 text-left"
-                aria-expanded={open === i}
-              >
-                <span className="text-[0.88rem] font-semibold text-ink leading-snug">{item.q}</span>
-                <span className="text-[1rem] text-teal leading-none transition-transform duration-200 shrink-0">
-                  {open === i ? "−" : "+"}
-                </span>
-              </button>
-              {open === i && (
-                <div className="px-4 pb-4 text-[0.82rem] text-ink-2 leading-relaxed border-t border-border pt-3">
-                  {item.a}
-                </div>
-              )}
-            </div>
+            <AccordionItem
+              key={i}
+              value={`faq-${i}`}
+              className="border border-border rounded-xl bg-card overflow-hidden px-4"
+            >
+              <AccordionTrigger className="text-left text-[0.88rem] font-semibold text-ink leading-snug hover:no-underline py-4">
+                {item.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-[0.82rem] text-ink-2 leading-relaxed pb-4 border-t border-border pt-3">
+                {item.a}
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </div>
     </section>
   );
