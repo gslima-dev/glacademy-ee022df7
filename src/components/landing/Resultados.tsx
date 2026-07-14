@@ -72,8 +72,8 @@ export function Resultados() {
             Se o vosso filho enfrenta um bloqueio semelhante, o diagnóstico identifica-o com precisão — de forma gratuita, online, sem qualquer compromisso de continuidade.
           </p>
           <a
-            href="#marcar"
-            className="inline-flex items-center justify-center gap-2 bg-teal text-white rounded-lg px-6 py-3 text-[0.9rem] font-semibold hover:bg-teal-dark hover:-translate-y-0.5 transition-all"
+            href="#inscricao"
+            className="inline-flex items-center justify-center gap-2 bg-teal text-white rounded-lg px-6 py-3 text-[0.9rem] font-semibold min-h-11 hover:bg-teal-dark hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             Marcar sessão de diagnóstico →
           </a>

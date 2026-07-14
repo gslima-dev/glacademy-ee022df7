@@ -1,13 +1,21 @@
-import gabrielPhoto from "@/assets/gabriel-portrait.jpg";
+import gabrielPhoto from "@/assets/gabriel-portrait.webp";
 
 export function Sobre() {
   return (
-    <section className="py-16 bg-ink" id="sobre">
+    <section className="py-16 bg-ink scroll-mt-20" id="sobre">
       <div className="max-w-4xl mx-auto px-6">
         <div className="grid md:grid-cols-[auto_1fr] gap-10 items-start">
           <div className="text-center">
             <div className="w-[152px] h-[152px] rounded-full overflow-hidden border-[3px] border-white/12 mx-auto mb-4">
-              <img src={gabrielPhoto} alt="Gabriel — GL Academy" className="w-full h-full object-cover object-top" width={152} height={152} />
+              <img
+                src={gabrielPhoto}
+                alt="Retrato de Gabriel L., fundador da GL Academy, estudante de Biologia Celular e Molecular na NOVA FCT"
+                className="w-full h-full object-cover object-top"
+                width={152}
+                height={152}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div className="flex flex-wrap gap-1 justify-center max-w-[165px] mx-auto">
               {["NOVA FCT", "Biologia Celular", "FQ · BioGeo", "19 anos"].map((chip) => (

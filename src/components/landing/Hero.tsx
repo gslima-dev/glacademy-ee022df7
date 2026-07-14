@@ -1,4 +1,4 @@
-import gabrielPhoto from "@/assets/gabriel-portrait.jpg";
+import gabrielPhoto from "@/assets/gabriel-portrait.webp";
 
 export function Hero() {
   return (
@@ -29,8 +29,8 @@ export function Hero() {
               É isso que fazemos na primeira sessão — antes de qualquer compromisso.
             </div>
             <a
-              href="#marcar"
-              className="inline-flex items-center justify-center gap-2 bg-teal text-white rounded-lg px-7 py-3.5 font-semibold text-[0.97rem] shadow-[0_4px_20px_oklch(0.43_0.09_185/0.24)] hover:bg-teal-dark hover:-translate-y-0.5 hover:shadow-[0_8px_30px_oklch(0.43_0.09_185/0.3)] transition-all"
+              href="#inscricao"
+              className="inline-flex items-center justify-center gap-2 bg-teal text-white rounded-lg px-7 py-3.5 font-semibold text-[0.97rem] min-h-12 shadow-[0_4px_20px_oklch(0.43_0.09_185/0.24)] hover:bg-teal-dark hover:-translate-y-0.5 hover:shadow-[0_8px_30px_oklch(0.43_0.09_185/0.3)] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               Marcar diagnóstico gratuito →
             </a>
@@ -49,7 +49,16 @@ export function Hero() {
 
           <div className="bg-card border border-border rounded-2xl p-6 shadow-[var(--shadow-lg)]">
             <div className="w-[72px] h-[72px] rounded-full overflow-hidden border-2 border-teal-muted mb-4">
-              <img src={gabrielPhoto} alt="Gabriel — GL Academy" className="w-full h-full object-cover object-top" width={72} height={72} />
+              <img
+                src={gabrielPhoto}
+                alt="Gabriel L., fundador da GL Academy e explicador de Física e Química A e Biologia e Geologia"
+                className="w-full h-full object-cover object-top"
+                width={72}
+                height={72}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+              />
             </div>
             <div className="font-serif text-base font-bold text-ink leading-tight">Gabriel L.</div>
             <div className="text-[0.7rem] text-ink-3 mt-1 mb-4 leading-snug">

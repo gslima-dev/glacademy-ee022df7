@@ -1,15 +1,24 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 
+// Portuguese mobile/landline: 9 digits, starts 2 or 9. Accepts spaces/+351 prefix.
+const phoneRegex = /^(?:\+351\s?)?[29]\d{2}\s?\d{3}\s?\d{3}$/;
+
 const inscricaoSchema = z.object({
-  nome: z.string().min(2, "Indica o nome do encarregado de educação"),
-  email: z.string().email("Indica um email válido"),
-  telefone: z.string().min(1, "Indica um telefone"),
-  nome_aluno: z.string().min(2, "Indica o nome do aluno"),
-  ano: z.string().min(1, "Seleciona o ano"),
-  disciplina: z.string().min(1, "Seleciona a disciplina"),
-  modalidade: z.string().optional(),
-  mensagem: z.string().optional(),
+  nome: z.string().trim().min(2, "Indica o nome do encarregado de educação").max(120),
+  email: z.string().trim().email("Indica um email válido").max(200),
+  telefone: z
+    .string()
+    .trim()
+    .regex(phoneRegex, "Indica um telefone português válido (9 dígitos)")
+    .max(20),
+  nome_aluno: z.string().trim().min(2, "Indica o nome do aluno").max(120),
+  ano: z.string().trim().min(1, "Seleciona o ano").max(20),
+  disciplina: z.string().trim().min(1, "Seleciona a disciplina").max(60),
+  modalidade: z.string().trim().max(120).optional().or(z.literal("")),
+  mensagem: z.string().trim().max(2000).optional().or(z.literal("")),
+  // Honeypot — must be empty; bots typically fill every field.
+  website: z.string().max(0).optional().or(z.literal("")),
 });
 
 function mapDisciplina(val: string): string[] {
@@ -32,6 +41,11 @@ function mapAno(val: string): string {
 export const submeterInscricao = createServerFn({ method: "POST" })
   .validator({ parse: (data) => inscricaoSchema.parse(data) })
   .handler(async ({ data }) => {
+    // Honeypot triggered — silently succeed so bots don't retry.
+    if (data.website && data.website.length > 0) {
+      return { ok: true };
+    }
+
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
     const { error } = await supabaseAdmin.from("inscricoes").insert({
