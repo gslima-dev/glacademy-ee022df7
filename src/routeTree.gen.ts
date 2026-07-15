@@ -15,6 +15,11 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AlunoRouteImport } from './routes/aluno'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlunoIndexRouteImport } from './routes/aluno.index'
+import { Route as AlunoSessoesRouteImport } from './routes/aluno.sessoes'
+import { Route as AlunoProgressoRouteImport } from './routes/aluno.progresso'
+import { Route as AlunoPerfilRouteImport } from './routes/aluno.perfil'
+import { Route as AlunoMateriaisRouteImport } from './routes/aluno.materiais'
 import { Route as AuthenticatedProgressoRouteImport } from './routes/_authenticated/progresso'
 import { Route as AuthenticatedPerfilRouteImport } from './routes/_authenticated/perfil'
 import { Route as AuthenticatedMateriaisRouteImport } from './routes/_authenticated/materiais'
@@ -51,6 +56,31 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AlunoIndexRoute = AlunoIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AlunoRoute,
+} as any)
+const AlunoSessoesRoute = AlunoSessoesRouteImport.update({
+  id: '/sessoes',
+  path: '/sessoes',
+  getParentRoute: () => AlunoRoute,
+} as any)
+const AlunoProgressoRoute = AlunoProgressoRouteImport.update({
+  id: '/progresso',
+  path: '/progresso',
+  getParentRoute: () => AlunoRoute,
+} as any)
+const AlunoPerfilRoute = AlunoPerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => AlunoRoute,
+} as any)
+const AlunoMateriaisRoute = AlunoMateriaisRouteImport.update({
+  id: '/materiais',
+  path: '/materiais',
+  getParentRoute: () => AlunoRoute,
 } as any)
 const AuthenticatedProgressoRoute = AuthenticatedProgressoRouteImport.update({
   id: '/progresso',
@@ -92,7 +122,7 @@ const AuthenticatedAulasLessonIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/aluno': typeof AlunoRoute
+  '/aluno': typeof AlunoRouteWithChildren
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -100,13 +130,17 @@ export interface FileRoutesByFullPath {
   '/materiais': typeof AuthenticatedMateriaisRoute
   '/perfil': typeof AuthenticatedPerfilRoute
   '/progresso': typeof AuthenticatedProgressoRoute
+  '/aluno/materiais': typeof AlunoMateriaisRoute
+  '/aluno/perfil': typeof AlunoPerfilRoute
+  '/aluno/progresso': typeof AlunoProgressoRoute
+  '/aluno/sessoes': typeof AlunoSessoesRoute
+  '/aluno/': typeof AlunoIndexRoute
   '/aulas/$lessonId': typeof AuthenticatedAulasLessonIdRoute
   '/cursos/$slug': typeof AuthenticatedCursosSlugRoute
   '/cursos/': typeof AuthenticatedCursosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/aluno': typeof AlunoRoute
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -114,6 +148,11 @@ export interface FileRoutesByTo {
   '/materiais': typeof AuthenticatedMateriaisRoute
   '/perfil': typeof AuthenticatedPerfilRoute
   '/progresso': typeof AuthenticatedProgressoRoute
+  '/aluno/materiais': typeof AlunoMateriaisRoute
+  '/aluno/perfil': typeof AlunoPerfilRoute
+  '/aluno/progresso': typeof AlunoProgressoRoute
+  '/aluno/sessoes': typeof AlunoSessoesRoute
+  '/aluno': typeof AlunoIndexRoute
   '/aulas/$lessonId': typeof AuthenticatedAulasLessonIdRoute
   '/cursos/$slug': typeof AuthenticatedCursosSlugRoute
   '/cursos': typeof AuthenticatedCursosIndexRoute
@@ -122,7 +161,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
-  '/aluno': typeof AlunoRoute
+  '/aluno': typeof AlunoRouteWithChildren
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -130,6 +169,11 @@ export interface FileRoutesById {
   '/_authenticated/materiais': typeof AuthenticatedMateriaisRoute
   '/_authenticated/perfil': typeof AuthenticatedPerfilRoute
   '/_authenticated/progresso': typeof AuthenticatedProgressoRoute
+  '/aluno/materiais': typeof AlunoMateriaisRoute
+  '/aluno/perfil': typeof AlunoPerfilRoute
+  '/aluno/progresso': typeof AlunoProgressoRoute
+  '/aluno/sessoes': typeof AlunoSessoesRoute
+  '/aluno/': typeof AlunoIndexRoute
   '/_authenticated/aulas/$lessonId': typeof AuthenticatedAulasLessonIdRoute
   '/_authenticated/cursos/$slug': typeof AuthenticatedCursosSlugRoute
   '/_authenticated/cursos/': typeof AuthenticatedCursosIndexRoute
@@ -146,13 +190,17 @@ export interface FileRouteTypes {
     | '/materiais'
     | '/perfil'
     | '/progresso'
+    | '/aluno/materiais'
+    | '/aluno/perfil'
+    | '/aluno/progresso'
+    | '/aluno/sessoes'
+    | '/aluno/'
     | '/aulas/$lessonId'
     | '/cursos/$slug'
     | '/cursos/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/aluno'
     | '/auth'
     | '/reset-password'
     | '/sitemap.xml'
@@ -160,6 +208,11 @@ export interface FileRouteTypes {
     | '/materiais'
     | '/perfil'
     | '/progresso'
+    | '/aluno/materiais'
+    | '/aluno/perfil'
+    | '/aluno/progresso'
+    | '/aluno/sessoes'
+    | '/aluno'
     | '/aulas/$lessonId'
     | '/cursos/$slug'
     | '/cursos'
@@ -175,6 +228,11 @@ export interface FileRouteTypes {
     | '/_authenticated/materiais'
     | '/_authenticated/perfil'
     | '/_authenticated/progresso'
+    | '/aluno/materiais'
+    | '/aluno/perfil'
+    | '/aluno/progresso'
+    | '/aluno/sessoes'
+    | '/aluno/'
     | '/_authenticated/aulas/$lessonId'
     | '/_authenticated/cursos/$slug'
     | '/_authenticated/cursos/'
@@ -183,7 +241,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
-  AlunoRoute: typeof AlunoRoute
+  AlunoRoute: typeof AlunoRouteWithChildren
   AuthRoute: typeof AuthRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -232,6 +290,41 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/aluno/': {
+      id: '/aluno/'
+      path: '/'
+      fullPath: '/aluno/'
+      preLoaderRoute: typeof AlunoIndexRouteImport
+      parentRoute: typeof AlunoRoute
+    }
+    '/aluno/sessoes': {
+      id: '/aluno/sessoes'
+      path: '/sessoes'
+      fullPath: '/aluno/sessoes'
+      preLoaderRoute: typeof AlunoSessoesRouteImport
+      parentRoute: typeof AlunoRoute
+    }
+    '/aluno/progresso': {
+      id: '/aluno/progresso'
+      path: '/progresso'
+      fullPath: '/aluno/progresso'
+      preLoaderRoute: typeof AlunoProgressoRouteImport
+      parentRoute: typeof AlunoRoute
+    }
+    '/aluno/perfil': {
+      id: '/aluno/perfil'
+      path: '/perfil'
+      fullPath: '/aluno/perfil'
+      preLoaderRoute: typeof AlunoPerfilRouteImport
+      parentRoute: typeof AlunoRoute
+    }
+    '/aluno/materiais': {
+      id: '/aluno/materiais'
+      path: '/materiais'
+      fullPath: '/aluno/materiais'
+      preLoaderRoute: typeof AlunoMateriaisRouteImport
+      parentRoute: typeof AlunoRoute
     }
     '/_authenticated/progresso': {
       id: '/_authenticated/progresso'
@@ -308,10 +401,28 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
 const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
+interface AlunoRouteChildren {
+  AlunoMateriaisRoute: typeof AlunoMateriaisRoute
+  AlunoPerfilRoute: typeof AlunoPerfilRoute
+  AlunoProgressoRoute: typeof AlunoProgressoRoute
+  AlunoSessoesRoute: typeof AlunoSessoesRoute
+  AlunoIndexRoute: typeof AlunoIndexRoute
+}
+
+const AlunoRouteChildren: AlunoRouteChildren = {
+  AlunoMateriaisRoute: AlunoMateriaisRoute,
+  AlunoPerfilRoute: AlunoPerfilRoute,
+  AlunoProgressoRoute: AlunoProgressoRoute,
+  AlunoSessoesRoute: AlunoSessoesRoute,
+  AlunoIndexRoute: AlunoIndexRoute,
+}
+
+const AlunoRouteWithChildren = AlunoRoute._addFileChildren(AlunoRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
-  AlunoRoute: AlunoRoute,
+  AlunoRoute: AlunoRouteWithChildren,
   AuthRoute: AuthRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
