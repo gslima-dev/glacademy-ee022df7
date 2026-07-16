@@ -3,7 +3,12 @@ import { useServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { submeterInscricao } from "@/lib/inscricoes.functions";
+
+const EMAILJS_SERVICE_ID = "glacademy";
+const EMAILJS_TEMPLATE_ID = "template_feftvhj";
+const EMAILJS_PUBLIC_KEY = "1sHd073YekD3og_bC";
 
 const ANOS = ["10.º ano", "11.º ano", "12.º ano"];
 const DISCIPLINAS = ["Física e Química A", "Biologia e Geologia", "Ambas"];
