@@ -18,12 +18,15 @@ export function Problema() {
           <em className="text-teal not-italic">É um problema de diagnóstico.</em>
         </h2>
         <p className="text-[0.92rem] text-ink-2 leading-[1.78] max-w-xl">
-          Quando o obstáculo real é identificado com precisão, o caminho até à solução torna-se claro. É exactamente isso que acontece na primeira sessão — de forma gratuita, sem qualquer compromisso de continuidade.
+          Quando o obstáculo real é identificado com precisão, o caminho até à solução torna-se claro — muitas vezes em dias, não em meses. É exatamente isso que acontece na primeira sessão: gratuita, sem qualquer compromisso de continuidade.
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border rounded-xl overflow-hidden mt-8">
           {pains.map((p) => (
-            <div key={p.title} className="bg-card p-5">
+            <div
+              key={p.title}
+              className="bg-card p-5 transition-all hover:bg-teal-soft/40 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lg)] hover:z-10 relative"
+            >
               <div className="text-[1.2rem] mb-2.5">{p.icon}</div>
               <h3 className="text-[0.88rem] font-semibold text-ink mb-1 leading-snug">{p.title}</h3>
               <p className="text-[0.77rem] text-ink-2 leading-relaxed">{p.text}</p>
