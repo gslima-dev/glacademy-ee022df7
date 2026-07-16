@@ -15,7 +15,7 @@ export function ComoFunciona() {
     {
       num: "3",
       title: "Sessões semanais de 1h30",
-      text: "Cada sessão: compreensão do conceito → prática no formato IAVE → feedback directo nos erros com explicação. Não avanço enquanto o conceito não estiver consolidado. E não deixo memorizar o que não foi compreendido.",
+      text: "Cada sessão: compreensão do conceito → prática no formato IAVE → feedback direto nos erros com explicação. Não avanço enquanto o conceito não estiver consolidado. E não deixo memorizar o que não foi compreendido.",
       free: false,
     },
     {
@@ -41,8 +41,11 @@ export function ComoFunciona() {
 
         <div className="flex flex-col">
           {steps.map((s) => (
-            <div key={s.num} className="grid grid-cols-[50px_1fr] gap-4 py-5 border-b border-border last:border-b-0 items-start">
-              <div className="w-10 h-10 rounded-full bg-teal text-white flex items-center justify-center font-serif text-[0.9rem] font-bold mt-0.5">
+            <div
+              key={s.num}
+              className="group grid grid-cols-[50px_1fr] gap-4 py-5 border-b border-border last:border-b-0 items-start transition-colors hover:bg-paper-2/60 rounded-lg px-2 -mx-2"
+            >
+              <div className="w-10 h-10 rounded-full bg-teal text-white flex items-center justify-center font-serif text-[0.9rem] font-bold mt-0.5 transition-transform group-hover:scale-110">
                 {s.num}
               </div>
               <div>
