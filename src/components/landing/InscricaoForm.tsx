@@ -3,7 +3,12 @@ import { useServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { submeterInscricao } from "@/lib/inscricoes.functions";
+
+const EMAILJS_SERVICE_ID = "glacademy";
+const EMAILJS_TEMPLATE_ID = "template_feftvhj";
+const EMAILJS_PUBLIC_KEY = "1sHd073YekD3og_bC";
 
 const ANOS = ["10.º ano", "11.º ano", "12.º ano"];
 const DISCIPLINAS = ["Física e Química A", "Biologia e Geologia", "Ambas"];
@@ -68,6 +73,27 @@ export function InscricaoForm() {
     try {
       const result = await submit({ data: form });
       if (result?.ok) {
+        // Envio de e-mail de confirmação ao visitante via EmailJS
+        try {
+          await emailjs.send(
+            EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID,
+            {
+              email: form.email,
+              to_email: form.email,
+              nome: form.nome,
+              nome_aluno: form.nome_aluno,
+              ano: form.ano,
+              disciplina: form.disciplina,
+              modalidade: form.modalidade || "—",
+              telefone: form.telefone,
+              mensagem: form.mensagem || "—",
+            },
+            { publicKey: EMAILJS_PUBLIC_KEY }
+          );
+        } catch (emailErr) {
+          console.error("EmailJS error:", emailErr);
+        }
         setStatus("success");
         setForm(emptyForm);
         setErrors({});
