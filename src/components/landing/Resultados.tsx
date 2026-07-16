@@ -13,7 +13,7 @@ export function Resultados() {
       before: "11 val. BioGeo",
       after: "16 no exame nacional",
       time: "ao longo de 3 meses",
-      quote: "Sabia a matéria, mas continuava a não ter a nota que esperava. O problema era a forma como respondia — não o conteúdo. O Gabriel mostrou-me exactamente o que os critérios IAVE exigem e trabalhámos isso de forma sistemática.",
+      quote: "Sabia a matéria, mas continuava a não ter a nota que esperava. O problema era a forma como respondia — não o conteúdo. O Gabriel mostrou-me exatamente o que os critérios IAVE exigem e trabalhámos isso de forma sistemática.",
       name: "Rodrigo F.",
       detail: "11.º ano · Biologia e Geologia · Lisboa",
       initials: "RF",
@@ -22,7 +22,7 @@ export function Resultados() {
       before: "10 valores",
       after: "15 no exame",
       time: "preparação de 3 semanas",
-      quote: "Começámos três semanas antes do exame. Em vez de rever tudo, o Gabriel construiu um plano focado nos tópicos com maior peso e treinámos no formato exacto do exame. O resultado surpreendeu-nos a todos.",
+      quote: "Começámos três semanas antes do exame. Em vez de rever tudo, o Gabriel construiu um plano focado nos tópicos com maior peso e treinámos no formato exato do exame. O resultado surpreendeu-nos a todos.",
       name: "Inês S.",
       detail: "11.º ano · FQ · Preparação intensiva de exame",
       initials: "IS",
@@ -41,12 +41,12 @@ export function Resultados() {
           <em className="text-teal not-italic">com alunos reais.</em>
         </h2>
         <p className="text-[0.92rem] text-ink-2 leading-[1.78] max-w-xl mb-8">
-          Os testemunhos abaixo são reais. Os nomes e detalhes foram partilhados com autorização. Não seleccionámos apenas os melhores casos — são representativos do tipo de progressão que ocorre quando o bloqueio é correctamente identificado.
+          Os testemunhos abaixo são reais. Os nomes e detalhes foram partilhados com autorização. Não selecionámos apenas os melhores casos — são representativos do tipo de progressão que ocorre quando o bloqueio é corretamente identificado.
         </p>
 
         <div className="grid md:grid-cols-3 gap-4">
           {cases.map((c) => (
-            <div key={c.initials} className="bg-card border border-border rounded-xl p-5 shadow-[var(--shadow-sm)]">
+            <div key={c.initials} className="bg-card border border-border rounded-xl p-5 shadow-[var(--shadow-sm)] transition-all hover:shadow-[var(--shadow-lg)] hover:-translate-y-1">
               <div className="flex items-center gap-2 mb-3 flex-wrap">
                 <span className="bg-red-50 border border-red-100 rounded px-2 py-1 text-[0.7rem] text-destructive font-semibold">{c.before}</span>
                 <span className="text-[0.72rem] text-ink-3">→</span>
@@ -73,9 +73,10 @@ export function Resultados() {
           </p>
           <a
             href="#inscricao"
-            className="inline-flex items-center justify-center gap-2 bg-teal text-white rounded-lg px-6 py-3 text-[0.9rem] font-semibold min-h-11 hover:bg-teal-dark hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="group inline-flex items-center justify-center gap-2 bg-teal text-white rounded-lg px-6 py-3 text-[0.9rem] font-semibold min-h-11 hover:bg-teal-dark hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
-            Marcar sessão de diagnóstico →
+            Marcar sessão de diagnóstico
+            <span className="transition-transform group-hover:translate-x-1">→</span>
           </a>
           <p className="text-[0.7rem] text-ink-3 mt-2">30 minutos · online · sem pagamento · sem compromisso</p>
         </div>
