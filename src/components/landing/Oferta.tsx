@@ -3,7 +3,7 @@ export function Oferta() {
     "Uma sessão por semana · 1h30 · 100% online",
     "Revisão do trabalho da semana anterior",
     "Explicação do tópico em foco — sem saltar etapas",
-    "Prática no formato IAVE com feedback directo",
+    "Prática no formato IAVE com feedback direto",
     "Plano de trabalho para a semana seguinte",
   ];
 
@@ -79,7 +79,7 @@ export function Oferta() {
             <div className="mb-8">
               <h3 className="font-serif text-[1.05rem] font-bold text-ink mb-4">Modalidades de acompanhamento</h3>
               <div className="grid md:grid-cols-2 gap-3">
-                <div className="bg-ink border border-ink rounded-xl p-5 flex flex-col gap-3 relative">
+                <div className="bg-ink border border-ink rounded-xl p-5 flex flex-col gap-3 relative transition-all hover:-translate-y-1 hover:shadow-[0_16px_40px_oklch(0.2_0.02_240/0.35)]">
                   <div className="absolute -top-2.5 left-5 bg-teal text-white text-[0.62rem] font-bold uppercase tracking-wider rounded-full px-2 py-1">
                     Mais procurado
                   </div>
@@ -100,7 +100,7 @@ export function Oferta() {
                   </div>
                 </div>
 
-                <div className="bg-card border border-border rounded-xl p-5 flex flex-col gap-3">
+                <div className="bg-card border border-border rounded-xl p-5 flex flex-col gap-3 transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-lg)] hover:border-teal-muted">
                   <div className="text-[0.62rem] font-bold uppercase tracking-[0.1em] text-ink-3">Individual</div>
                   <div className="font-serif text-[1.8rem] font-bold text-ink leading-none">
                     150€<span className="font-sans text-[0.82rem] font-normal text-ink-3">/mês</span>

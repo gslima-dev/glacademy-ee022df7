@@ -21,7 +21,7 @@ export function Sobre() {
               {["NOVA FCT", "Biologia Celular", "FQ · BioGeo", "19 anos"].map((chip) => (
                 <span
                   key={chip}
-                  className="text-[0.63rem] font-semibold bg-white/6 border border-white/9 rounded-full px-2 py-1 text-white/60"
+                  className="text-[0.63rem] font-semibold bg-white/6 border border-white/9 rounded-full px-2 py-1 text-white/60 transition-colors hover:bg-white/12 hover:text-white/90"
                 >
                   {chip}
                 </span>
@@ -39,7 +39,7 @@ export function Sobre() {
             </h2>
             <p className="text-[0.9rem] text-white/60 leading-[1.8] mt-3">
               Tenho 19 anos e estou a licenciar-me em <strong className="text-white">Biologia Celular e Molecular na NOVA FCT</strong>. Não tenho décadas de experiência. Tenho algo com um valor diferente:{" "}
-              <strong className="text-white">a memória recente e precisa de estar exactamente onde os meus alunos estão.</strong>
+              <strong className="text-white">a memória recente e precisa de estar exatamente onde os meus alunos estão.</strong>
             </p>
             <p className="text-[0.9rem] text-white/60 leading-[1.8] mt-3">
               Sei o que é estudar horas para FQ e não perceber porque os resultados não mudam. Sei o que é chegar a um teste a pensar que a matéria estava dominada — e bloquear. Essa experiência não é apenas parte da minha história.{" "}
