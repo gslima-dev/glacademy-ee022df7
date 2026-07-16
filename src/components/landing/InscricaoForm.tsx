@@ -73,6 +73,27 @@ export function InscricaoForm() {
     try {
       const result = await submit({ data: form });
       if (result?.ok) {
+        // Envio de e-mail de confirmação ao visitante via EmailJS
+        try {
+          await emailjs.send(
+            EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID,
+            {
+              email: form.email,
+              to_email: form.email,
+              nome: form.nome,
+              nome_aluno: form.nome_aluno,
+              ano: form.ano,
+              disciplina: form.disciplina,
+              modalidade: form.modalidade || "—",
+              telefone: form.telefone,
+              mensagem: form.mensagem || "—",
+            },
+            { publicKey: EMAILJS_PUBLIC_KEY }
+          );
+        } catch (emailErr) {
+          console.error("EmailJS error:", emailErr);
+        }
         setStatus("success");
         setForm(emptyForm);
         setErrors({});
