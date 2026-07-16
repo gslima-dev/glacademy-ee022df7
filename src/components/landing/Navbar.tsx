@@ -86,7 +86,7 @@ export function Navbar() {
       {open && (
         <div
           id="mobile-nav"
-          className="absolute top-14 left-0 right-0 md:hidden bg-paper border-b border-border shadow-md"
+          className="absolute top-14 left-0 right-0 md:hidden bg-paper border-b border-border shadow-md animate-in fade-in slide-in-from-top-2 duration-200"
         >
           <div className="max-w-4xl mx-auto px-6 py-4 flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
