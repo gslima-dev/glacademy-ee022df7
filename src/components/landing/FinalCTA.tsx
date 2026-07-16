@@ -8,13 +8,14 @@ export function FinalCTA() {
           <em className="text-white/50 not-italic">A clareza que o vosso filho precisa pode começar hoje.</em>
         </h2>
         <p className="text-[0.85rem] text-white/60 leading-relaxed mb-6 max-w-lg mx-auto">
-          30 minutos. Online. Sem compromisso. Vou explicar o que está a travar o progresso e o plano exacto para o resolver.
+          30 minutos. Online. Sem compromisso. Vou explicar o que está a travar o progresso e o plano exato para o resolver.
         </p>
         <a
           href="#inscricao"
-          className="inline-flex items-center justify-center gap-2 bg-teal text-white rounded-lg px-8 py-4 text-[1rem] font-semibold hover:bg-teal-dark hover:-translate-y-0.5 transition-all"
+          className="group inline-flex items-center justify-center gap-2 bg-teal text-white rounded-lg px-8 py-4 text-[1rem] font-semibold hover:bg-teal-dark hover:-translate-y-0.5 hover:shadow-[0_8px_30px_oklch(0.43_0.09_185/0.35)] transition-all"
         >
           Reservar diagnóstico gratuito
+          <span className="transition-transform group-hover:translate-x-1">→</span>
         </a>
       </div>
     </section>

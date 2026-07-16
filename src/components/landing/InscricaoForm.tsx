@@ -83,7 +83,7 @@ export function InscricaoForm() {
   };
 
   const inputBase =
-    "w-full rounded-lg border bg-background px-3 py-2.5 text-[0.85rem] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-11";
+    "w-full rounded-lg border bg-background px-3 py-2.5 text-[0.85rem] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 min-h-11 transition-colors hover:border-teal-muted";
   const cls = (key: keyof Errors) =>
     `${inputBase} ${errors[key] ? "border-destructive" : "border-input"}`;
 
