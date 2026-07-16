@@ -44,7 +44,7 @@ function InicioPage() {
         {proxima && (
           <section>
             <SectionLabel>Próxima sessão</SectionLabel>
-            <Card className="border-teal/25 bg-gradient-to-br from-teal-soft/60 to-transparent p-6 lg:p-8 shadow-sm">
+            <Card className="border-teal/25 bg-gradient-to-br from-teal-soft/60 to-transparent p-6 lg:p-8 shadow-sm transition-shadow hover:shadow-md">
               <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
                 <div className="flex items-center gap-5">
                   <div className="grid place-items-center h-16 w-16 rounded-xl bg-card border border-border/70 shrink-0">
@@ -152,7 +152,7 @@ function InicioPage() {
                 {streak.ultimoMes.map((v, i) => (
                   <div
                     key={i}
-                    className={`h-6 rounded-sm ${v ? "bg-teal/70" : "bg-paper-3/70"}`}
+                    className={`h-6 rounded-sm transition-transform hover:scale-y-110 ${v ? "bg-teal/70" : "bg-paper-3/70"}`}
                     aria-hidden
                   />
                 ))}
