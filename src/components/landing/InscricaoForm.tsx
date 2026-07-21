@@ -7,7 +7,7 @@ import emailjs from "@emailjs/browser";
 import { submeterInscricao } from "@/lib/inscricoes.functions";
 
 const EMAILJS_SERVICE_ID = "glacademy";
-const EMAILJS_TEMPLATE_ID = "template_feftvhj";
+const EMAILJS_TEMPLATE_ID = "template_c9s1z8m";
 const EMAILJS_PUBLIC_KEY = "1sHd073YekD3og_bC";
 
 const ANOS = ["10.º ano", "11.º ano", "12.º ano"];
